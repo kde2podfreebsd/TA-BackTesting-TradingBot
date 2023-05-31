@@ -275,11 +275,11 @@ class BinanceSpotMarket(BinanceInterface):
 
 
 if __name__ == "__main__":
-    # print(datetime.fromtimestamp(1639204722760/1000))
-    # # print(int(datetime(2022, 3, 8, 15, 12, 11).timestamp()))
+    print(datetime.fromtimestamp(1585282456000 / 1000))
+    # print(int(datetime(2020, 3, 28, 7, 14, 16).timestamp()))
     # print(1639204722760)
     t1 = (
-        datetime.strptime("5.11.2021 00:00:00,00", "%d.%m.%Y %H:%M:%S,%f").timestamp()
+        datetime.strptime("28.3.2020 7:14:16,00", "%d.%m.%Y %H:%M:%S,%f").timestamp()
         * 1000
     )
     t2 = (
@@ -287,15 +287,15 @@ if __name__ == "__main__":
         * 1000
     )
     print(t1, t2)
-    print(int(t1), int(t2))
+    t3, t4 = int(t1), int(t2)
     b = BinanceSpotMarket()
     df = b.makeKLinesDataFrame(
         symbol="BTCUSDT",
-        bar_interval="1d",
-        startTime=int(t1),
-        endTime=int(t2),
+        bar_interval="1h",
+        startTime=int(datetime(2023, 5, 1, 3, 0, 0).timestamp() * 1000),
+        endTime=None,
     )
-
+    # int(datetime(2021, 11, 15, 23, 59, 59).timestamp() * 1000)
     print(df)
 
     # b.appendDataFrame(df1=df, ticker='BTCUSDT')
